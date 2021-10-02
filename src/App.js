@@ -4,7 +4,7 @@ import Axios from 'axios';
 import Search from './components/Search';
 import MealsList from './components/MealsList';
 
-import './App.css';
+import './App.scss';
 
 const App = () => {
   const [mealsList, setMealsList] = useState([]);

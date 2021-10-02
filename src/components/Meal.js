@@ -1,4 +1,4 @@
-import './Meal.css';
+import './Meal.scss';
 
 const Meal = ({meals}) => {
 
