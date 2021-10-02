@@ -11,10 +11,16 @@ input {
     padding: 0 10px;
     border-radius: 4px;
     border: 1px solid #ddd;
-}
 
-input[type="submit"] {
-    max-width: 60px;
-    margin-left: 10px;
-    height: 34px;
+    &[type="submit"] {
+        max-width: 70px;
+        margin-left: 10px;
+        height: 34px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lightgrey;
+            border: 1px solid lightgrey;
+        }
+    }
 }

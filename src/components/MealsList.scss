@@ -1,0 +1,12 @@
+ul {
+    padding-left: 0;
+    margin: 20px -10px;
+
+    li {
+        list-style: none;
+        display: inline-block;
+        width: calc(33% - 19px);
+        vertical-align: top;
+        margin: 0 10px;
+    }
+}

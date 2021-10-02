@@ -1,16 +1,17 @@
-import React, { Fragment } from 'react';
 import Meal from './Meal';
+
+import './MealsList.scss';
 
 const MealsList = ({ list }) => {
 
     return (
-        <Fragment>
+        <ul>
             {
                 list.map(meal => {
-                    return <Meal meals={meal}/>
+                    return <li><Meal meals={meal}/></li>
                 })
             }
-        </Fragment>
+        </ul>
     )
 }
 
