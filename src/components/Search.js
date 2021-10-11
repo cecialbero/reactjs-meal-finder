@@ -3,19 +3,20 @@ import React, { useState } from 'react';
 import './Search.scss';
 
 const Search = (props) => {
-    const [data, setData] = useState({
-        ingredient: ''
-    })
+    const [ingredient, setIngredient] = useState('');
+    const [isEmpty, setIsEmpty] = useState(true);
 
     const handleInputChange = e => {
-        setData({
-            [e.target.name] : e.target.value
-        })
+        setIngredient(e.target.value);
+        setIsEmpty(false);
     }
 
     const handleFormSubmit = e => {
         e.preventDefault();
-        props.searchIngredient(data.ingredient)
+        props.searchIngredient(ingredient);
+
+        setIngredient('');
+        setIsEmpty(true);
     }
 
     return (
@@ -24,12 +25,14 @@ const Search = (props) => {
             type='text' 
             placeholder='Enter an ingredient'
             name="ingredient"
+            value={ingredient}
             onChange={handleInputChange} />
-            <input 
+            <input
+            disabled={isEmpty}
             type='submit' 
             value='Search'/>
         </form>
     )
 }
 
-export default Search;
+export default Search
