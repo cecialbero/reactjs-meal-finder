@@ -8,7 +8,7 @@ const MealsList = ({ list }) => {
         <ul>
             {
                 list.map(meal => {
-                    return <li><Meal meals={meal}/></li>
+                    return <li key={meal.idMeal}><Meal meals={meal}/></li>
                 })
             }
         </ul>
