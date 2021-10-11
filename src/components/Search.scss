@@ -16,11 +16,16 @@ input {
         max-width: 70px;
         margin-left: 10px;
         height: 34px;
-        cursor: pointer;
+        color: #ccc;
 
-        &:hover {
-            background-color: lightgrey;
-            border: 1px solid lightgrey;
+        &:not(:disabled) {
+            cursor: pointer;
+            color: rgb(94, 93, 93);
+
+            &:hover {
+                background-color: lightgrey;
+                border: 1px solid lightgrey;
+            }
         }
     }
 }
