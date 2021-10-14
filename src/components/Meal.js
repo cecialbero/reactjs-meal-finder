@@ -1,3 +1,5 @@
+import React from 'react';
+import PropType from 'prop-types';
 import './Meal.scss';
 
 const Meal = ({meals}) => {
@@ -11,3 +13,7 @@ const Meal = ({meals}) => {
 }
 
 export default Meal;
+
+Meal.PropType = {
+    meals: PropType.object.isRequired
+}
