@@ -23,9 +23,8 @@ const App = () => {
     })
   }
 
-  const alertMsg = txt => {
-    console.log(txt)
-    setMsg(txt)
+  const alertMsg = msg => {
+    setMsg(msg)
   }
 
   return (
