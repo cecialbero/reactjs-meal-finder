@@ -1,0 +1,27 @@
+@import './../sass/variables.scss';
+
+.toast {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 400px;
+    padding: 6px 20px;
+    color: #333;
+    border-radius: 4px;
+
+    &-warning {
+        background: $warning-bg;
+
+        i {
+            color: $warning-color
+        }
+    }
+
+    p {
+        margin: 5px 12px 8px;
+    }
+}

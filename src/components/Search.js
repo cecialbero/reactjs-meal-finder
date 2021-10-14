@@ -13,8 +13,10 @@ const Search = (props) => {
     const handleOnSubmit = e => {
         e.preventDefault();
         if(ingredient === '') {
-            props.alertMsg('You must insert an ingredient')
+            props.alertMsg('You must insert an ingredient', 'warning');
+            // props.searchIngredient(null);
         } else {
+            props.alertMsg('', null);
             props.searchIngredient(ingredient);
             setIngredient('');
         }
