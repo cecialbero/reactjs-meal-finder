@@ -1,38 +1,43 @@
 import React, { useState } from 'react';
+import PropType from 'prop-types';
 
 import './Search.scss';
 
 const Search = (props) => {
     const [ingredient, setIngredient] = useState('');
-    const [isEmpty, setIsEmpty] = useState(true);
 
-    const handleInputChange = e => {
+    const handleOnInputChange = e => {
         setIngredient(e.target.value);
-        setIsEmpty(false);
     }
 
-    const handleFormSubmit = e => {
+    const handleOnSubmit = e => {
         e.preventDefault();
-        props.searchIngredient(ingredient);
-
-        setIngredient('');
-        setIsEmpty(true);
+        if(ingredient === '') {
+            props.alertMsg('You must insert an ingredient')
+        } else {
+            props.searchIngredient(ingredient);
+            setIngredient('');
+        }
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleOnSubmit}>
             <input 
             type='text' 
             placeholder='Enter an ingredient'
-            name="ingredient"
+            name='ingredient'
             value={ingredient}
-            onChange={handleInputChange} />
+            onChange={handleOnInputChange} />
             <input
-            disabled={isEmpty}
             type='submit' 
             value='Search'/>
         </form>
     )
 }
 
-export default Search
+export default Search;
+
+Search.PropType = {
+    searchIngredient: PropType.func.isRequired,
+    alertMsg: PropType.func
+}
