@@ -9,7 +9,7 @@ const Toast = ({ toast }) => {
         <Fragment>
             { msg ?
                 <div className={`toast toast-${type}`}>
-                    <i className={'fas fa-exclamation-triangle'} />
+                    <i className={'fas ' + (type === 'danger' ? 'fa-times-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle') } />
                     <p>{ msg }</p>
                 </div>
                 :

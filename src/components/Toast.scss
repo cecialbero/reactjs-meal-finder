@@ -10,18 +10,22 @@
     justify-content: flex-start;
     width: 400px;
     padding: 6px 20px;
-    color: #333;
+    color: #fff;
     border-radius: 4px;
 
-    &-warning {
-        background: $warning-bg;
+    &-info {
+        background: $info-bg
+    }
 
-        i {
-            color: $warning-color
-        }
+    &-danger {
+        background: $danger-bg
+    }
+
+    &-warning {
+        background: $warning-bg
     }
 
     p {
-        margin: 5px 12px 8px;
+        margin: 5px 12px 8px
     }
 }
