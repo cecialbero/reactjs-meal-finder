@@ -1,8 +1,9 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
+
 import './Meal.scss';
 
-const Meal = ({meals}) => {
+const Meal = ({ meals }) => {
 
     return (
         <article>
@@ -12,8 +13,8 @@ const Meal = ({meals}) => {
     )
 }
 
-export default Meal;
-
-Meal.PropType = {
-    meals: PropType.object.isRequired
+Meal.propTypes = {
+    meals: PropTypes.object.isRequired
 }
+
+export default Meal
