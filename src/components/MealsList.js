@@ -25,8 +25,8 @@ const MealsList = ({ list }) => {
     )
 }
 
-export default MealsList;
-
 MealsList.propTypes = {
     list: PropTypes.array
 }
+
+export default MealsList
