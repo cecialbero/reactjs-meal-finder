@@ -3,13 +3,11 @@ import Axios from 'axios';
 
 import Search from './components/Search';
 import MealsList from './components/MealsList';
-import Toast from './components/Toast';
 
 import './App.scss';
 
 const App = () => {
   const [mealsList, setMealsList] = useState([]);
-  const [toast, setToast] = useState({});
 
   const searchIngredient = ingredient => {
     Axios({
@@ -23,19 +21,10 @@ const App = () => {
     })
   }
 
-  const alertMsg = (msg, type) => {
-    setToast({msg, type})
-
-    setTimeout(() => {
-      setToast({})
-    }, 4000)
-  }
-
   return (
     <section>
       <h1>Meal Finder</h1>
-      <Search searchIngredient={searchIngredient} alertMsg={alertMsg}/>
-      <Toast toast={toast}/>
+      <Search searchIngredient={searchIngredient}/>
       <MealsList list={mealsList}/>
     </section>
   );
