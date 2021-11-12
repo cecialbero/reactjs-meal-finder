@@ -4,29 +4,34 @@ import Meal from './Meal';
 
 import './MealsList.scss';
 
-const MealsList = ({ list }) => {
+const MealsList = ({ list, term }) => {
 
     return (
         <Fragment>
             {
-                list ? <ul>
-                    {
-                        list.map(meal => {
-                            return <li key={meal.idMeal}><Meal meals={meal}/></li>
-                        })
-                    }
-                </ul>
+                list ?
+                <>
+                    <p>{list.length} results found for {term}</p>
+                    <ul>
+                        {
+                            list.map(meal => {
+                                return <li key={meal.idMeal}><Meal meals={meal}/></li>
+                            })
+                        }
+                    </ul>
+                </>
 
                 :
 
-                <p>No results found</p>
+                <p>No results found for {term}</p>
             }
         </Fragment>
     )
 }
 
 MealsList.propTypes = {
-    list: PropTypes.array
+    list: PropTypes.array,
+    term: PropTypes.string
 }
 
 export default MealsList

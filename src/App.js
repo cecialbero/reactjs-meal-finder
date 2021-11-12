@@ -8,6 +8,7 @@ import './App.scss';
 
 const App = () => {
   const [mealsList, setMealsList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const searchIngredient = ingredient => {
     Axios({
@@ -19,13 +20,15 @@ const App = () => {
     .catch((error) => {
       console.log(error)
     })
+
+    setSearchTerm(ingredient)
   }
 
   return (
     <section>
       <h1>Meal Finder</h1>
       <Search searchIngredient={searchIngredient}/>
-      <MealsList list={mealsList}/>
+      <MealsList list={mealsList} term={searchTerm}/>
     </section>
   );
 }
