@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import useForm from './../hooks/useForm';
 
 import './Search.scss';
 
 const Search = ({ searchIngredient }) => {
-    const [ingredient, setIngredient] = useState('');
-
-    const handleChange = e => {
-        setIngredient(e.target.value);
-    }
+    const [ values, handleChange ] = useForm({
+        ingredient: ''
+    });
+    const { ingredient } = values;
 
     const handleSubmit = e => {
         e.preventDefault();
         searchIngredient(ingredient);
-        setIngredient('');
+        values.ingredient = '';
     }
 
     return (
