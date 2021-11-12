@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Meal from './Meal';
 
@@ -7,7 +7,7 @@ import './MealsList.scss';
 const MealsList = ({ list, term }) => {
 
     return (
-        <Fragment>
+        <>
             {
                 list ?
                 <>
@@ -25,7 +25,7 @@ const MealsList = ({ list, term }) => {
 
                 <p>No results found for {term}</p>
             }
-        </Fragment>
+        </>
     )
 }
 
