@@ -1,20 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+
+import { MealsContext } from './../context/MealsContext';
 import Meal from './Meal';
 
 import './MealsList.scss';
 
-const MealsList = ({ list, term }) => {
+const MealsList = () => {
+    
+    let { meals, ingredient } = useContext(MealsContext);
 
     return (
         <>
             {
-                list ?
+                meals && ingredient ?
                 <>
-                    <p>{list.length} results found for {term}</p>
+                    <p>{meals.length} results found for "{ingredient}"</p>
                     <ul>
                         {
-                            list.map(meal => {
+                            meals.map(meal => {
                                 return <li key={meal.idMeal}><Meal meals={meal}/></li>
                             })
                         }
@@ -23,15 +26,16 @@ const MealsList = ({ list, term }) => {
 
                 :
 
-                <p>No results found for {term}</p>
+                ingredient = '' || !meals
+
+                ?
+
+                <p>No results found for "{ingredient}"</p>
+
+                : <></>
             }
         </>
     )
-}
-
-MealsList.propTypes = {
-    list: PropTypes.array,
-    term: PropTypes.string
 }
 
 export default MealsList

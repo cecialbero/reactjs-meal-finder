@@ -3,6 +3,7 @@ import Axios from 'axios';
 
 import Search from './components/Search';
 import MealsList from './components/MealsList';
+import { MealsContext } from './context/MealsContext';
 
 import './App.scss';
 
@@ -24,12 +25,19 @@ const App = () => {
     setSearchTerm(ingredient)
   }
 
+  const mealsContext = {
+    meals: mealsList,
+    ingredient: searchTerm
+  }
+
   return (
-    <section>
-      <h1>Meal Finder</h1>
-      <Search searchIngredient={searchIngredient}/>
-      <MealsList list={mealsList} term={searchTerm}/>
-    </section>
+    <MealsContext.Provider value={mealsContext}>
+      <section>
+        <h1>Meal Finder</h1>
+        <Search searchIngredient={searchIngredient}/>
+        <MealsList/>
+      </section>
+    </MealsContext.Provider>
   );
 }
 
