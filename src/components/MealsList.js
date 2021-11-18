@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 
-import { MealsContext } from './../context/MealsContext';
+import MealsContext from './../context/Meals/MealsContext';
 import Meal from './Meal';
 
 import './MealsList.scss';
 
 const MealsList = () => {
     
-    let { meals, ingredient } = useContext(MealsContext);
+    const mealsContext = useContext(MealsContext);
+
+    console.log(mealsContext)
+
+    const { meals, ingredient } = mealsContext;
 
     return (
         <>

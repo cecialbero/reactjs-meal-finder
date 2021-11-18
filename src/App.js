@@ -1,43 +1,21 @@
-import React, { useState } from 'react';
-import Axios from 'axios';
+import React from 'react';
 
 import Search from './components/Search';
 import MealsList from './components/MealsList';
-import { MealsContext } from './context/MealsContext';
+import MealsState from './context/Meals/MealsState';
 
 import './App.scss';
 
 const App = () => {
-  const [mealsList, setMealsList] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const searchIngredient = ingredient => {
-    Axios({
-      url: `https://www.themealdb.com/api/json/v1/1/search.php?s=${ingredient}`
-    })
-    .then((res) => {
-      setMealsList(res.data.meals)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-
-    setSearchTerm(ingredient)
-  }
-
-  const mealsContext = {
-    meals: mealsList,
-    ingredient: searchTerm
-  }
-
+ 
   return (
-    <MealsContext.Provider value={mealsContext}>
+    <MealsState>
       <section>
         <h1>Meal Finder</h1>
-        <Search searchIngredient={searchIngredient}/>
+        <Search/>
         <MealsList/>
       </section>
-    </MealsContext.Provider>
+    </MealsState>
   );
 }
 

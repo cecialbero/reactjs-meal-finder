@@ -1,10 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import useForm from './../hooks/useForm';
+import MealsContext from './../context/Meals/MealsContext';
 
 import './Search.scss';
 
-const Search = ({ searchIngredient }) => {
+const Search = () => {
+    const mealsContext = useContext(MealsContext);
+    
     const [ values, handleChange ] = useForm({
         ingredient: ''
     });
@@ -12,7 +14,7 @@ const Search = ({ searchIngredient }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        searchIngredient(ingredient);
+        mealsContext.searchIngredient(ingredient);
         values.ingredient = '';
     }
 
@@ -32,10 +34,6 @@ const Search = ({ searchIngredient }) => {
 
         </form>
     )
-}
-
-Search.propTypes = {
-    searchIngredient: PropTypes.func.isRequired
 }
 
 export default Search
