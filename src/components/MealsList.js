@@ -8,10 +8,7 @@ import './MealsList.scss';
 const MealsList = () => {
     
     const mealsContext = useContext(MealsContext);
-
-    console.log(mealsContext)
-
-    const { meals, ingredient } = mealsContext;
+    let { meals, ingredient } = mealsContext;
 
     return (
         <>
